@@ -15,11 +15,11 @@ def ping_host(ip_address):
     """
     os_name = platform.system().lower()
     if os_name == "windows":
-        command = ["ping", "-n", "1", "-w", "1000", ip]  # 1s
+        command = ["ping", "-n", "1", "-w", "1000", ip_address]  # 1s
     elif os_name == "darwin":  # macOS
-        command = ["ping", "-c", "1", "-W", "1000", ip]  # ms en macOS
+        command = ["ping", "-c", "1", "-W", "1000", ip_address]  # ms en macOS
     else:  # linux
-        command = ["ping", "-c", "1", "-W", "1", ip]     # 1s por respuesta
+        command = ["ping", "-c", "1", "-W", "1", ip_address]     # 1s por respuesta
     result = subprocess.run(command, stdout=subprocess.PIPE, text=True)
 
     if result.returncode == 0:
@@ -60,3 +60,4 @@ if __name__ == "__main__":
             
 
                 
+
